@@ -19,13 +19,13 @@ The benchmark test the `fs#readBinaryFile` api and 3 other functions which do th
 
 ## Results
 
-We ran each method 5 times and calc the average(in release build).
+We ran each method 50 times and calc the average(in release build).
 
-| Method          | Time              |
-| --------------- | ----------------- |
-| `default`       | 634.54 ± 4.51 ms  |
-| `base64`        | 176.92 ± 10.11 ms |
-| `base64-fetch`  | 251.98 ± 10.43 ms |
-| `base64-manual` | 217.80 ± 9.97 ms  |
+| Method          | Time                |
+| --------------- | ------------------- |
+| `default`       | 2859.31 ± 510.70 ms |
+| `base64`        | 531.00 ± 147.48 ms  |
+| `base64-fetch`  | 598.67 ± 126.60 ms  |
+| `base64-manual` | 564.75 ± 126.70 ms  |
 
-It looks like using base64 encoding in this situation is much faster(around 3.5 times) than using json. For the base64 variants, althrough `atob` returns a string rather than an arraybuffer, it's still slightly faster than the manual javascript implementation.
+It looks like using base64 encoding in this situation is much faster(around 5 times) than using json. For the base64 variants, althrough `atob` returns a string rather than an arraybuffer, it's still slightly faster than the manual javascript implementation.

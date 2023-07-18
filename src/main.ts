@@ -29,7 +29,7 @@ async function imageFromBase64ManualDecoding(url: string) {
 
 async function bench() {
 	const url = './assets/matheo-joubert-bLMaqkYfnJw-unsplash.jpg'
-	const ITERATIONS = 5
+	const ITERATIONS = 50
 	const results: Record<string, number[]> = {
 		base64: [],
 		'base64-fetch': [],
