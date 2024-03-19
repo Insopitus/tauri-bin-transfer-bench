@@ -1,10 +1,12 @@
 # Tauri Binary Data Transfer Benchmark
 
+**Update: With the upcoming Tauri 2.0, this is non-issue.**
+
 ## What is this?
 
-This repo is a small benchmark between [Tauri](https://tauri.app)'s `readBinaryFile` api and an alternative way (use base64 encoding rather than json) to transfer binary data from tauri's rust backend to web frontend.
+This repo is a small benchmark between [Tauri](https://tauri.app)'s `readBinaryFile` api and an alternative way, using base64 encoding rather than json, to transfer binary data from tauri's rust backend to web frontend.
 
-It seems like the `fs#readBinaryFile` api uses `serde` to serialize `Vec<u8>` data to a json string, then send the string to javascript. Javascript deserialize the data to a js `Array<number>`, and then use `Uint8Array.from(arr)` to convert it to a `Uint8Array`. This approach doesn't sound efficient.
+It seems like the `fs#readBinaryFile` api uses `serde` to serialize `Vec<u8>` data to a json string, then sends the string to javascript. Javascript deserializes the data to a js `Array<number>`, and then uses `Uint8Array.from(arr)` to convert it to a `Uint8Array`. This approach doesn't sound efficient.
 
 IIRC, the tauri team said it's not possible for now to transfer binary data directly due to some linux limatations. So, how about using base64 encoding to encode the binary data to string rather than json?
 
